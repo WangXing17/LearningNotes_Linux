@@ -1,0 +1,39 @@
+gcc命令相关:    
+    编译过程分为四个阶段：即预处理（也称预编译），编译，汇编和链接。
+    1.预处理：gcc -E test.c -o test.i 或 gcc -E test.c
+可以输出test.i文件中存放着test.c经预处理之后的代码。打开test.i文件，看一看，就明白了。后面那条指令，是直接在命令行窗口中输出预处理后的代码.gcc的-E选项，可以让编译器在预处理后停止，并输出预处理结果。在本例中，预处理结果就是将stdio.h 文件中的内容插入到test.c中了。
+    2.编译：gcc -S test.i -o test.s 或 gcc -S test.c
+gcc的-S选项，表示在程序编译期间，在生成汇编代码后，停止，-o输出汇编代码文件。
+    3.汇编：gcc -c test.s -o test.o
+对于上一小节中生成的汇编代码文件test.s，gas汇编器负责将其编译为目标文件.
+    4.链接：gcc test.o test
+gcc连接器是gas提供的，负责将程序的目标文件与所需的所有附加的目标文件连接起来，最终生成可执行文件。附加的目标文件包括静态连接库和动态连接库。对于上一小节中生成的test.o，将其与Ｃ标准输入输出库进行连接，最终生成程序test.
+   以上四条命令相当于gcc test.c -o test
+   gcc -Wall test.c -o test   使用它能够使GCC产生尽可能多的警告信息。
+   gcc -Werror test.c -o test  在编译程序时带上-Werror选项，那么GCC会在所有产生警告的地方停止编译，迫使程序员对自己的代码进行修改.
+   gcc -o hello hello.c   -I/home/hello/include   -L/home/hello/lib    -lworld
+上面这句表示在编译hello.c时：
+    -I /home/hello/include，表示将/home/hello/include目录作为第一个寻找头文件的目录，寻找的顺序是：/home/hello/include–>/usr/include–>/usr/local/include
+        也就是指定优先查找的目录，找不到的话查找默认目录
+    -L /home/hello/lib，表示将/home/hello/lib目录作为第一个寻找库文件的目录， 寻找的顺序是：/home/hello/lib–>/lib–>/usr/lib–>/usr/local/lib
+        同上，也是指定优先查找的目录
+    -l word , 表示**寻找动态链接库文件**libword.so（也就是文件名去掉前缀和后缀所代表的库文件)
+        如果 加上编译选项-static，表示寻找静态链接库文件，也就是libword.a
+对于第三方提供的动态链接库(.so），一般将其拷贝到一个lib目录下(/usr/local/lib），或者使用-L来指定其所在目录， 然后使用-l来指定其名称.
+    gcc -g test.c -o test   在编译的时候假如debug调试信息，用于gdb调试.
+
+make命令相关:
+    make是一个命令工具，是一个解释makefile种指令的命令工具。它可以简化编译过程里面所下达的指令，当执行make时，make会在当前目录下搜索Makefile(or makefile)这个文本文件，执行相应的操作。make会自动的判断原始码是否经过变动了，而自动更新执行档。
+    makefile其实就是一个文档，里面定义了一系列的规则指定哪些文件需要先编译，哪些文件需要后编译，哪些文件需要重新编译，它记录了原始码如何编译的详细信息！makefile一旦写好，只需要一个make命令，整个工程完全自动编译，极大提高了软件开发的效率。
+    makefile的规则：
+    目标：目标文件1 目标文件2 ..
+    <Tab>gcc -o欲建立的执行文件 目标文件1 目标文件2 ...
+    注：在makefile当中的#代表批注;
+        <tab>需要在命令行的第一个字符;
+        目标与目标文件之间需要以：隔开。
+    make的使用：
+    make 或 make 目标（只会重新编译修改的文件，没有修改的不会重新编译）
+    make -B  会强制编译所有的目标文件以及最终的执行文件
+    make -d  打印调试信息
+    make -C  如果你想运行的 make 命令的 Makefile 文见没有保存在当前目录下，使用该参数切换到Makefile所在的目录。
+    make -f my_makefile  如果你想将重命名 Makefile 文件，比如取名为 my_makefile 或者其它的名字，我们想让 make 将它也当成 Makefile,通过这种方法，make 命令会选择扫描 my_makefile 来代替 Makefile。
