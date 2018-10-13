@@ -1,0 +1,38 @@
+    yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。
+    yum的命令形式一般是如下:yum [option][command][package]
+其中的[options]是可选的，选项包括-h（帮助），-y（当安装过程提示选择全部为"yes"），-q（不显示安装的过程）等等。[command]为所要进行的操作，[package ...]是操作的对象。
+
+1.启用与禁用仓库
+禁用仓库:yum-config-manager --disable “仓库名"
+启用仓库:yum-config-manager --enable “仓库名”
+
+2.显示软件仓库列表
+yum repolist
+
+3.显示软件包列表
+yum list [名称]
+
+4.安装卸载与更新
+安装：yum install package1 package2...
+重新安装：yum reinstall package
+卸载：yum remove package
+更新：yum update package
+降级：yum downgrage package
+检查可用的更新：yum check-update
+
+5.缓存命令
+清除缓存：yum clean all
+构建缓存：yum makecache
+
+6.查看依赖性
+yum deplist package1
+
+7.包组相关命令
+安装：yum groupinstall group1 [group2] [...]
+更新yum groupupdate group1 [group2] [...]
+列表yum grouplist [hidden] [groupwildcard] [...]
+删除yum groupremove group1 [group2] [...]
+信息yum groupinfo group1 [...]
+
+8.查看yum事务历史
+yum history
