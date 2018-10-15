@@ -1,0 +1,121 @@
+ls命令：列出当前目录种的文件名和目录
+例: c++             dumpCrash    hello      公共  图片  音乐
+core.2320       dumpCrash.c  linuxNote  模板  文档  桌面
+dontforget.txt  gitHub       python     视频  下载
+
+    ls -l：以长列表格式显示文件和目录。（一行显示一条记录，一条记录有7个字段）
+        字段1：文件权限
+        字段2：链接数
+        字段3：所有者
+        字段4：用户组
+        字段5：文件大小
+        字段6：修改时间
+        字段7：文件名
+例：    -rw-r----- 1 root root 21630 Aug 19 00:01 test.txt
+
+    ls -lh：将文件大小显示为符合人类阅读习惯的格式。    
+例：    -rw-r----- 1 root root 22k   Aug 19 00:01 test.txt
+
+    ls -F:使用不同的特殊字符归类不同的文件类型。
+        /：表示目录
+        无特殊字符：表示普通文件
+        @：表示链接文件
+        *：表示可执行文件
+例：ls -F /home/xw
+c++/            dumpCrash*   hello/      公共/  图片/  音乐/
+core.2320       dumpCrash.c  linuxNote/  模板/  文档/  桌面/
+dontforget.txt  gitHub/      python/     视频/  下载/
+
+    ls -ld：以长列表格式列出某个目录的信息，而不是列出它们的内容。
+例：ls -l hello/
+总用量 12
+-rw-rw-r--. 1 xw xw    0 7月  31 21:09 README
+-rw-rw-r--. 1 xw xw    7 7月  31 21:14 README.md
+-rw-rw-r--. 1 xw xw 1023 7月  31 21:29 timeClient.cpp
+-rw-rw-r--. 1 xw xw 1400 7月  31 21:30 timeServer.cpp
+    ls -ld hello/
+drwxrwxr-x. 3 xw xw 93 10月 12 20:31 hello/
+
+    ls -R：递归地列出目录的内容。
+例：ls -R gitHub/
+gitHub/:
+linux  python
+
+gitHub/linux:
+linux命令之make.txt  linux命令之查看文件文件和目录.txt  README.md
+linux命令之yum.txt   linux命令之正则表达式.txt
+
+gitHub/python:
+day1.txt  hello.py
+
+    ls -r：逆序排列。(按名称)
+例：ls 
+linux命令之make.txt  linux命令之查看文件文件和目录.txt  README.md
+linux命令之yum.txt   linux命令之正则表达式.txt
+    ls -r
+README.md                          linux命令之yum.txt
+linux命令之正则表达式.txt          linux命令之make.txt
+linux命令之查看文件文件和目录.txt
+
+    ls -t：按时间信息排序。
+例：ls -l
+总用量 24
+-rw-r--r--. 1 root root 4256 10月 13 10:41 linux命令之make.txt
+-rw-rw-r--. 1 xw   xw   1593 10月 13 21:41 linux命令之yum.txt
+-rw-rw-r--. 1 xw   xw      0 10月 15 20:27 linux命令之查看文件文件和目录.txt
+-rw-rw-r--. 1 xw   xw   5386 9月  27 09:40 linux命令之正则表达式.txt
+-rw-r--r--. 1 root root  504 10月 13 21:49 README.md
+    ls -lt
+总用量 24
+-rw-rw-r--. 1 xw   xw      0 10月 15 20:27 linux命令之查看文件文件和目录.txt
+-rw-r--r--. 1 root root  504 10月 13 21:49 README.md
+-rw-rw-r--. 1 xw   xw   1593 10月 13 21:41 linux命令之yum.txt
+-rw-r--r--. 1 root root 4256 10月 13 10:41 linux命令之make.txt
+-rw-rw-r--. 1 xw   xw   5386 9月  27 09:40 linux命令之正则表达式.txt
+
+    ls -S：按文件大小而不是字典序排序目录内容，大文件靠前。
+例：ls -l
+总用量 28
+-rw-r--r--. 1 root root 4256 10月 13 10:41 linux命令之make.txt
+-rw-rw-r--. 1 xw   xw   1593 10月 13 21:41 linux命令之yum.txt
+-rw-rw-r--. 1 xw   xw   3214 10月 15 21:38 linux命令之查看文件文件和目录.txt
+-rw-rw-r--. 1 xw   xw   5386 9月  27 09:40 linux命令之正则表达式.txt
+-rw-r--r--. 1 root root  504 10月 13 21:49 README.md
+    ls -lS
+总用量 28
+-rw-rw-r--. 1 xw   xw   5386 9月  27 09:40 linux命令之正则表达式.txt
+-rw-r--r--. 1 root root 4256 10月 13 10:41 linux命令之make.txt
+-rw-rw-r--. 1 xw   xw   3214 10月 15 21:38 linux命令之查看文件文件和目录.txt
+-rw-rw-r--. 1 xw   xw   1593 10月 13 21:41 linux命令之yum.txt
+-rw-r--r--. 1 root root  504 10月 13 21:49 README.md
+
+    ls -a：列出包括隐藏文件或目录在内的所有文件或目录，包括"."(当前目录)和".."(父目录)
+例：ls
+linux命令之make.txt  linux命令之查看文件文件和目录.txt  README.md
+linux命令之yum.txt   linux命令之正则表达式.txt
+    ls -a
+.     linux命令之make.txt                .linux命令之查看文件文件和目录.txt.swp
+..    linux命令之yum.txt                 linux命令之正则表达式.txt
+.git  linux命令之查看文件文件和目录.txt  README.md
+
+    ls -A：列出包括隐藏文件或目录在内的所有文件或目录，不包括"."(当前目录)和".."(>父目录)
+例：ls -A
+.git                 linux命令之查看文件文件和目录.txt       README.md
+linux命令之make.txt  .linux命令之查看文件文件和目录.txt.swp
+linux命令之yum.txt   linux命令之正则表达式.txt
+
+    ls -i：在每个文件左边打印i节点号（也叫文件序列号和索引号: file serial number and index number）。i节点号在每个特定的文件系统中是唯一的。
+例：ls -i
+50342061 linux命令之make.txt                   79207 linux命令之正则表达式.txt
+50342088 linux命令之yum.txt                 50343753 README.md
+50342099 linux命令之查看文件文件和目录.txt
+    
+    ls -n：列出数字化的 UID 和 GID 而不是用户名和组名。
+例:ls -n
+总用量 28
+-rw-r--r--. 1    0    0 4256 10月 13 10:41 linux命令之make.txt
+-rw-rw-r--. 1 1000 1000 1593 10月 13 21:41 linux命令之yum.txt
+-rw-rw-r--. 1 1000 1000 3214 10月 15 21:38 linux命令之查看文件文件和目录.txt
+-rw-rw-r--. 1 1000 1000 5386 9月  27 09:40 linux命令之正则表达式.txt
+-rw-r--r--. 1    0    0  504 10月 13 21:49 README.md
+
