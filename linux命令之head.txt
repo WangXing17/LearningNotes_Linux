@@ -1,0 +1,36 @@
+head：用于打印指定输入的开头部分内容(默认为前10行)。
+
+    head -n N：指定打印文件的前N行。
+例：cat -n test3.txt 
+     1	hello,this is test1.txt.
+     2	
+     3	
+     4	
+     5	
+     6	hello,this is test2.txt.
+     7	append !!! 
+    $:head -n 3 test3.txt | cat -n
+     1	hello,this is test1.txt.
+     2	
+     3	
+
+    head -n -N：打印除最后N行以外的所有行。
+例：$:head -n -2 test3.txt | cat -n
+     1	hello,this is test1.txt.
+     2	
+     3	
+     4	
+     5	
+
+    cat -c N：打印文件的前N个字节数据。
+例：$：head -c 5 test3.txt 
+hello
+  
+    cat -c -N：打印除最后N个字节以外的所有数据。
+例：$:head -c -5 test3.txt 
+hello,this is test1.txt.
+
+
+
+
+hello,this is test2.txt.
