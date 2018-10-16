@@ -1,0 +1,27 @@
+wc：用于查看文件的行数、单词数和字符数等信息。 
+    $:wc file
+X Y Z filename
+X：表示行数。
+Y：表示单词数。
+Z：表示字节数。
+filename：表示文件名
+
+例：$:wc test2.txt 
+ 2  5 36 test2.txt
+
+    wc -l：可以统计文件的行数信息。
+例：$:wc -l test2.txt 
+2 test2.txt
+
+    wc -w：可以统计文件的单词数信息。
+例：$:wc -w test2.txt 
+5 test2.txt
+
+    wc -c：可以统计文件的字节数信息。
+例：$:wc -c test2.txt 
+36 test2.txt
+
+    wc -L：可以统计文件中最长的行的长度。
+例:$:wc -L test2.txt 
+24 test2.txt
+
