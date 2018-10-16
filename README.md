@@ -9,6 +9,8 @@ Studyding Linux myself,record what my learned!
 
 * [linux命令之tail](https://github.com/WangXing17/LearningNotes_Linux/blob/master/linux%E5%91%BD%E4%BB%A4%E4%B9%8Btail.txt)
 
+* [linux命令之wc](https://github.com/WangXing17/LearningNotes_Linux/blob/master/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bwc.txt)
+
 * [linux命令之make](https://github.com/WangXing17/LearningNotes_Linux/blob/master/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bmake.txt)
 
 * [linux命令之yum](https://github.com/WangXing17/LearningNotes_Linux/blob/master/linux%E5%91%BD%E4%BB%A4%E4%B9%8Byum.txt)
