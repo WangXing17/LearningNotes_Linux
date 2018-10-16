@@ -1,0 +1,32 @@
+file：用于接收一个文件作为参数并执行某些测试，以确定正确的文件类型。
+例：$:file test3.txt 
+test3.txt: ASCII text
+    $:file c++
+c++: directory
+
+    file -i：可以MIME类型的格式显示文件类型的信息。
+例：$:file -i test3.txt 
+test3.txt: text/plain; charset=us-ascii
+
+    file -N：输出的队列可以以在文件名之后无空白填充的形式显示。
+例：$:file *
+linux命令之cat.txt:        UTF-8 Unicode text
+linux命令之file.txt:       empty
+linux命令之head.txt:       UTF-8 Unicode text
+linux命令之ls.txt:         UTF-8 Unicode text
+linux命令之make.txt:       UTF-8 Unicode text
+linux命令之tail.txt:       UTF-8 Unicode text
+linux命令之yum.txt:        UTF-8 Unicode text
+linux命令之正则表达式.txt: UTF-8 Unicode text
+README.md:                 UTF-8 Unicode text
+    $:file -N *
+linux命令之cat.txt: UTF-8 Unicode text
+linux命令之file.txt: empty
+linux命令之head.txt: UTF-8 Unicode text
+linux命令之ls.txt: UTF-8 Unicode text
+linux命令之make.txt: UTF-8 Unicode text
+linux命令之tail.txt: UTF-8 Unicode text
+linux命令之yum.txt: UTF-8 Unicode text
+linux命令之正则表达式.txt: UTF-8 Unicode text
+README.md: UTF-8 Unicode text
+
