@@ -1,0 +1,74 @@
+cat：查看文件的内容、连接文件、创建一个或多个文件和重定向输出到终端或文件。
+cat命令的语法如下：cat [option] [file1,file2,...]
+例：$:cat test1.txt 
+hello,this is test1.txt.
+    
+    cat -n：显示文件内容的行号。
+例：$:cat -n test1.txt 
+     1	hello,this is test1.txt.
+
+    cat -n test1.txt test2.txt：带有行号的显示多个文件的内容。
+例：$:cat -n test1.txt test2.txt 
+     1	hello,this is test1.txt.
+     2	hello,this is test2.txt.
+
+    cat -b：与-n选项类似，但只标识非空白的行号。
+例：$:cat -n test1.txt 
+     1	hello,this is test1.txt.
+     2	
+     3	
+     4	
+     5	
+    $:cat -b test1.txt 
+     1	hello,this is test1.txt.
+
+
+
+
+ 
+    cat -e：在每一行的结尾显示"$"字符。
+例：$:cat -e test1.txt 
+hello,this is test1.txt.$
+$
+$
+$
+$
+
+    cat：当你只输入cat命令，而没有任何参数时，它只是接收标准输入的内容并且在标准输出中显示。所以在你输入一行内容并回车后，会在下一行显示相同的内容。
+例：cat
+asdasasd
+asdasasd
+dsad
+dsad
+dasd
+dasd
+dasdkhsadlkashdlashd
+dasdkhsadlkashdlashd
+
+    cat > file1：重定向输出到文件。
+例：$:cat >test1.txt 
+hello,this is test1.txt.
+    $:cat test1.txt 
+hello,this is test1.txt.
+ 
+    cat file1 file2 > file3：连接多个文件的内容到一个新的文件。
+例：$:cat test1.txt 
+hello,this is test1.txt.
+
+
+
+
+    $:cat test2.txt 
+hello,this is test2.txt.
+append !!!
+    $:cat test1.txt test2.txt > test3.txt
+    $:cat test3.txt
+hello,this is test1.txt.
+
+
+
+
+hello,this is test2.txt.
+append !!!
+
+tac：tac命令与cat命令相反,它将以倒序的形式(先显示文件的最后一行)显示文件的内容。
