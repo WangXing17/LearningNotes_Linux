@@ -56,20 +56,33 @@ aa/cc/dd:
 
 aa/cc/ee:
 ```
-* 例4：为目录指定权限，指定的权限为mode-umask。例如，mode=rx，umask=2，则最终权限为555-2=554，即rw-rw-r--。    
+* 例4-1：为创建的test5目录指定权限。命令为mkdir -m 777 test5。   
 ```
-/home/dodv81/baklog/bin>mkdir -m=r a     -- 只读
-/home/dodv81/baklog/bin>mkdir -m=w b     -- 只写
-/home/dodv81/baklog/bin>mkdir -m=rw c    -- 读写
-/home/dodv81/baklog/bin>mkdir -m=rx d    -- 读可执行
-/home/dodv81/baklog/bin>mkdir -m=rwx e   -- 读写可执行
-/home/dodv81/baklog/bin>ll
+xw@ubuntu:~/Linux_Everyday/28_Feb$ mkdir -m 777 test5
+xw@ubuntu:~/Linux_Everyday/28_Feb$ ls -l
+total 28
+drwxr-xr-x 4 xw xw 4096 Feb 28 05:15 aa
+drwxr-xr-x 5 xw xw 4096 Feb 28 05:29 baklog
+drwxr-xr-x 2 xw xw 4096 Feb 28 04:52 test1
+drwxr-xr-x 2 xw xw 4096 Feb 28 05:09 test2
+drwxr-xr-x 2 xw xw 4096 Feb 28 05:09 test3
+drwxr-xr-x 2 xw xw 4096 Feb 28 05:09 test4
+drwxrwxrwx 2 xw xw 4096 Feb 28 17:10 test5
+```
+* 例4-2：为目录指定权限，指定的权限为mode-umask。例如，mode=rw，umask=022，则最终权限为666-022=644，即rw-r--r--。    
+```
+xw@ubuntu:~/Linux_Everyday/28_Feb/test5$ mkdir -m=r a
+xw@ubuntu:~/Linux_Everyday/28_Feb/test5$ mkdir -m=w b
+xw@ubuntu:~/Linux_Everyday/28_Feb/test5$ mkdir -m=rw c
+xw@ubuntu:~/Linux_Everyday/28_Feb/test5$ mkdir -m=rx d
+xw@ubuntu:~/Linux_Everyday/28_Feb/test5$ mkdir -m=rwx e
+xw@ubuntu:~/Linux_Everyday/28_Feb/test5$ ls -l
 total 20
-dr--r--r-- 2 dodv81 dodv81 4096 Nov 17 23:48 a
-d-w--w---- 2 dodv81 dodv81 4096 Nov 17 23:48 b
-drw-rw-r-- 2 dodv81 dodv81 4096 Nov 17 23:48 c
-dr-xr-xr-x 2 dodv81 dodv81 4096 Nov 17 23:48 d
-drwxrwxr-x 2 dodv81 dodv81 4096 Nov 17 23:49 e
+dr--r--r-- 2 xw xw 4096 Feb 28 17:19 a
+d-w------- 2 xw xw 4096 Feb 28 17:19 b
+drw-r--r-- 2 xw xw 4096 Feb 28 17:19 c
+dr-xr-xr-x 2 xw xw 4096 Feb 28 17:19 d
+drwxr-xr-x 2 xw xw 4096 Feb 28 17:20 e
 ```
 * 例5： 查看创建目录的过程信息。命令为mkdir -vp baklog/{bin,lib,log/{cep,dod,testlog}}   
 ```
