@@ -11,7 +11,7 @@ rm是remove files or directories。意为移除文件或目录。rm也是一个�
 3.常用参数：   
 　　-f,--force:忽略不存在的文件，从不给出提示。   
 　　-i,--interactive:进行交互式删除。   
-　　-d,--dir:删除空的目录。
+　　-d,--dir:删除空的目录。      
 　　-r,-R,--recursive:指示rm将参数中列出的全部目录和子目录均递归地删除。   
 　　-v,--verbose:详细显示进行的步骤。   
 4.常用范例：   
