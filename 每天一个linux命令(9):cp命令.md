@@ -17,7 +17,7 @@ cp是copy files and directories的缩写，意思是复制文件或目录。cp�
 　　-i,--interactive: 若目标文件已经存在时，就会询问是否覆盖。（会使-n失效）     
 　　-n,--no-clobber：若目标文件已经存在时，不要覆盖。（会使-i失效）    
 　　-l,--link：创建硬链接文件而不是复制文件。    
-　　-s,--symbolic-link:创建符号链接（软链接）文件而不是复制文件   
+　　-s,--symbolic-link:创建符号链接（软链接）文件而不是复制文件。类似于windows的快捷方式。   
 　　-L,--dereference：总是跟随符号链接。    
 　　-p，--no-dereference：不跟随源文件中的符号链接。    
 　　-t,--target-directory=DIRECTORY:指定目标目录，复制所有的源文件到目标目录中。    
