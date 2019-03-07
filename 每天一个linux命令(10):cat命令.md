@@ -105,6 +105,8 @@ hello
 	haha
 ```
 
+# tac命令		
+tac：tac命令与cat命令相反,它将以倒序的形式(先显示文件的最后一行)显示文件的内容。		
 ### 补充    
 linux中shell的here document用法   
 什么是Here Documen：    
